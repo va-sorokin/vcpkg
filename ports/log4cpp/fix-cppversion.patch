@@ -1,0 +1,13 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index d476352..b6feb13 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -12,6 +12,8 @@
+ PROJECT ( LOG4CPP )
+ CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
+ 
++SET(CMAKE_CXX_STANDARD 14)
++
+ INCLUDE_DIRECTORIES ( ${CMAKE_CURRENT_SOURCE_DIR}/include )
+ INCLUDE_DIRECTORIES ( ${CMAKE_CURRENT_SOURCE_DIR}/. )
+ 
