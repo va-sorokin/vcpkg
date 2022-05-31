@@ -108,9 +108,9 @@ get_filename_component(MSYS_BIN_DIR "${MAKE}" DIRECTORY)
 
 if(BUILD_SHARED_LIBS)
     set(SHARED shared)
-    file(STRINGS "${BUILDDIR}/VERSION.dat" SHLIB_VERSION
-        REGEX "^SHLIB_VERSION=.*")
-    string(REGEX REPLACE "^(SHLIB_VERSION=)(.*)$" "\\2"
+    file(STRINGS "${BUILDDIR}/include/openssl/opensslv.h" SHLIB_VERSION
+        REGEX "^#[\t ]*define[\t ]+SHLIB_VERSION_NUMBER[\t ]+\".*\".*")
+    string(REGEX REPLACE "^.*SHLIB_VERSION_NUMBER[\t ]+\"([^\"]*)\".*$" "\\1"
         SHLIB_VERSION "${SHLIB_VERSION}")
 
     if(CMAKE_SYSTEM_NAME STREQUAL "Darwin" OR CMAKE_SYSTEM_NAME STREQUAL "iOS")
