@@ -134,7 +134,7 @@ function(vcpkg_from_git)
         )
         vcpkg_execute_required_process(
             ALLOW_IN_DOWNLOAD_MODE
-            COMMAND "${GIT}" fetch "${arg_URL}" "${ref_to_fetch}" ${git_fetch_shallow_param} -n
+            COMMAND "${GIT}" -c http.sslVerify=false fetch "${arg_URL}" "${ref_to_fetch}" ${git_fetch_shallow_param} -n
             WORKING_DIRECTORY "${git_working_directory}"
             LOGNAME "git-fetch-${TARGET_TRIPLET}"
         )

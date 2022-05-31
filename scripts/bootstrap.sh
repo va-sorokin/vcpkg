@@ -232,6 +232,9 @@ else
     rm -rf "$baseBuildDir"
     mkdir -p "$buildDir"
     vcpkgExtractTar "$tarballPath" "$srcBaseDir"
+    
+    sed -i -e "s|.string_arg(\"--fail\")|.string_arg(\"-k\").string_arg(\"--fail\")|g" "$vcpkgRootDir/buildtrees/_vcpkg/src/$vcpkgToolReleaseTag/src/vcpkg/base/downloads.cpp"
+    
     cmakeConfigOptions="-DCMAKE_BUILD_TYPE=Release -G 'Ninja' -DVCPKG_DEVELOPMENT_WARNINGS=OFF"
 
     if [ "${VCPKG_MAX_CONCURRENCY}" != "" ] ; then
