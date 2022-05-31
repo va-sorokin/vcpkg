@@ -5185,8 +5185,8 @@
       "port-version": 1
     },
     "openssl": {
-      "baseline": "3.0.3",
-      "port-version": 2
+      "baseline": "1.1.1o",
+      "port-version": 0
     },
     "openssl-unix": {
       "baseline": "1.1.1h",
